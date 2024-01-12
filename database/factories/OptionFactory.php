@@ -19,6 +19,7 @@ class OptionFactory extends Factory
         return [
             'question_id' => rand(1, 10),
             'option_text' => fake()->sentence(2),
+            'correct' => fake()->boolean(),
             'points' => fake()->randomNumber(3),
         ];
     }

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->integer('total_points')->nullable();
-            $table->string('correct')->nullable();
-            $table->datetime('date')->nullable();
-            $table->foreignIdFor(Question::class);
+            //$table->string('correct')->nullable();
+            //$table->datetime('date')->nullable();
+            //$table->foreignIdFor(Question::class);
             $table->timestamps();
             $table->softDeletes();
         });

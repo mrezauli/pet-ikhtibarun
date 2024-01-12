@@ -32,6 +32,7 @@ class OptionResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('points')
                     ->numeric(),
+                Forms\Components\Toggle::make('correct'),
             ]);
     }
 
@@ -39,12 +40,15 @@ class OptionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('question.id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('question.question_text')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('option_text')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('points')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\IconColumn::make('correct')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

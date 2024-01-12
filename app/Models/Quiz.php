@@ -23,7 +23,7 @@ class Quiz extends Model
         'user_id',
         'header_id',
         'section_id',
-        'question_id',
+        //'question_id',
         'answer_id',
     ];
 

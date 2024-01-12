@@ -18,10 +18,10 @@ class ResultFactory extends Factory
     {
         return [
             'user_id' => rand(1, 10),
-            'question_id' => rand(1, 10),
+            //'question_id' => rand(1, 10),
             'total_points' => fake()->randomNumber(3),
-            'correct' => fake()->sentence(2),
-            'date' => fake()->dateTime(),
+            //'correct' => fake()->sentence(2),
+            //'date' => fake()->dateTime(),
         ];
     }
 }

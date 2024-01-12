@@ -14,14 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
         \App\Models\Answer::factory(10)->create();
-        \App\Models\AnswerTest::factory(10)->create();
         \App\Models\Category::factory(10)->create();
         \App\Models\Header::factory(10)->create();
         \App\Models\Option::factory(10)->create();
-        \App\Models\OptionQuestion::factory(10)->create();
         \App\Models\Question::factory(10)->create();
-        \App\Models\QuestionQuiz::factory(10)->create();
-        \App\Models\QuestionResult::factory(10)->create();
         \App\Models\Quiz::factory(10)->create();
         \App\Models\Result::factory(10)->create();
         \App\Models\Section::factory(10)->create();

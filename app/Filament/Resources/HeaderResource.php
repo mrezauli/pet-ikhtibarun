@@ -59,6 +59,8 @@ class HeaderResource extends Resource
                 Tables\Columns\TextColumn::make('quiz_size')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('questions_taken')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('score')
                     ->numeric()
                     ->sortable(),

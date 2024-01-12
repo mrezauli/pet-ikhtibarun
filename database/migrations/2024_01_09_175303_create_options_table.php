@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(Question::class);
             $table->text('option_text');
             $table->integer('points')->nullable();
+            $table->boolean('correct')->default(false)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

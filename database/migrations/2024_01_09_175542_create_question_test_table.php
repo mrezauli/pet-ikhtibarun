@@ -16,13 +16,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('answer_test', function (Blueprint $table) {
+        Schema::create('question_test', function (Blueprint $table) {
             $table->id();
             $table->boolean('correct')->default(false);
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->nullable();
             $table->foreignIdFor(Test::class);
             $table->foreignIdFor(Question::class);
-            $table->foreignIdFor(Option::class);
+            $table->foreignIdFor(Option::class)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

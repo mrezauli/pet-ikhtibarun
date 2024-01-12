@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Result::class);
             $table->foreignIdFor(Question::class);
-            $table->foreignIdFor(Option::class);
-            $table->integer('points')->default(0);
+            $table->foreignIdFor(Option::class)->nullable();
+            $table->integer('points')->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

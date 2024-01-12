@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Result extends Model
 {
@@ -85,10 +86,10 @@ class Result extends Model
     //     return $this->belongsTo(User::class, 'user_id');
     // }
 
-    public function question(): BelongsTo
+    public function questions(): BelongsToMany
     {
         //return $this->belongsTo(Question::class, 'question_id')->withTrashed();
-        return $this->belongsTo(Question::class);
+        return $this->belongsToMany(Question::class);
     }
 
 

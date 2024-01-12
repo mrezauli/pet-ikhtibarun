@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\QuizResource\Pages;
 use App\Filament\Resources\QuizResource\RelationManagers;
+use App\Filament\Resources\QuizResource\RelationManagers\QuestionsRelationManager;
 use App\Models\Quiz;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -42,9 +43,6 @@ class QuizResource extends Resource
                 Forms\Components\Select::make('section_id')
                     ->relationship('section', 'name')
                     ->required(),
-                Forms\Components\TextInput::make('question_id')
-                    ->required()
-                    ->numeric(),
                 Forms\Components\TextInput::make('answer_id')
                     ->required()
                     ->numeric(),
@@ -72,9 +70,6 @@ class QuizResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('section.name')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('question_id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('answer_id')
@@ -114,7 +109,7 @@ class QuizResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            QuestionsRelationManager::class,
         ];
     }
 

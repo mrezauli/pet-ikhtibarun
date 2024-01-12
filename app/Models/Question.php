@@ -96,4 +96,14 @@ class Question extends Model
     //         //return $this->hasMany(QuestionsOption::class, 'question_id')->withTrashed();
     //         return $this->hasMany(OptionQuestion::class);
     //    }
+
+    /**
+     * The tests that belong to the Question
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tests(): BelongsToMany
+    {
+        return $this->belongsToMany(Test::class);
+    }
 }

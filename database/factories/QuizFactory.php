@@ -25,7 +25,7 @@ class QuizFactory extends Factory
             'user_id' => rand(1, 10),
             'header_id' => rand(1, 10),
             'section_id' => rand(1, 10),
-            'question_id' => rand(1, 10),
+            //'question_id' => rand(1, 10),
             'answer_id' => rand(1, 10),
             'is_correct' => fake()->randomElement(['0', '1']),
         ];

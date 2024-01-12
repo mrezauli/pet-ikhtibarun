@@ -4,6 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\QuestionResource\Pages;
 use App\Filament\Resources\QuestionResource\RelationManagers;
+use App\Filament\Resources\QuestionResource\RelationManagers\QuizzesRelationManager;
+use App\Filament\Resources\QuestionResource\RelationManagers\ResultsRelationManager;
+use App\Filament\Resources\QuestionResource\RelationManagers\TestsRelationManager;
 use App\Models\Question;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -18,10 +21,6 @@ class QuestionResource extends Resource
     protected static ?string $model = Question::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-    protected static ?int $navigationSort = 5;
-
-    protected static ?string $navigationGroup = 'Sorted';
 
     public static function form(Form $form): Form
     {
@@ -59,12 +58,6 @@ class QuestionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('question_text')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('code_snippet')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('answer_explanation')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('more_info_link')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_active')
@@ -113,7 +106,9 @@ class QuestionResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            QuizzesRelationManager::class,
+            ResultsRelationManager::class,
+            TestsRelationManager::class,
         ];
     }
 

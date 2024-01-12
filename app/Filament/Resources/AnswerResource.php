@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\AnswerResource\Pages;
 use App\Filament\Resources\AnswerResource\RelationManagers;
+use App\Filament\Resources\AnswerResource\RelationManagers\TestsRelationManager;
 use App\Models\Answer;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -42,7 +43,7 @@ class AnswerResource extends Resource
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_checked')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('question.id')
+                Tables\Columns\TextColumn::make('question.question_text')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -77,7 +78,6 @@ class AnswerResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
         ];
     }
 

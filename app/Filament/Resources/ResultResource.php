@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\QuizResource\RelationManagers\QuestionsRelationManager;
 use App\Filament\Resources\ResultResource\Pages;
 use App\Filament\Resources\ResultResource\RelationManagers;
 use App\Models\Result;
@@ -28,12 +29,6 @@ class ResultResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('total_points')
                     ->numeric(),
-                Forms\Components\TextInput::make('correct')
-                    ->maxLength(255),
-                Forms\Components\DateTimePicker::make('date'),
-                Forms\Components\Select::make('question_id')
-                    ->relationship('question', 'id')
-                    ->required(),
             ]);
     }
 
@@ -45,14 +40,6 @@ class ResultResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('total_points')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('correct')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('date')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('question.id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -87,7 +74,7 @@ class ResultResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            QuestionsRelationManager::class,
         ];
     }
 

@@ -16,6 +16,7 @@ class Option extends Model
         'points',
         'question_id',
         'option_text',
+        'correct',
     ];
 
     public function question(): BelongsTo

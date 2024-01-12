@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignIdFor(Question::class);
             $table->foreignIdFor(Quiz::class);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
